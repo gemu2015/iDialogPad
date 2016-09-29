@@ -1,0 +1,192 @@
+SET SCREEN 500 650  10 10
+NEW SCREEN
+
+CLR SCREEN C_WH6
+
+TEXT "iDialogpad Output Konverter" -2 10 18 C_BK C_WH6
+//TEXT "iDialogpad Output Konverter" -2 10 18 C_BK C_WH6 500 30
+
+//DEFINE PATH "vp_dev"
+DEFINE PATH "paket"
+//DEFINE PATH "home"
+
+//MESSAGE PATH 0
+//END
+
+
+DFS: "CFGPATH" 
+DFS: "QDFPATH" 91
+DFS: "INPATH" 92
+DFS: "OUTPATH" 93
+
+DFB: "XPOS"
+DFB: "YPOS"
+DFB: "XSIZ"
+DFB: "YSIZ"
+
+CFGPATH = "/sort_qdf.plist"
+// ausgabe pfad
+INPATH = "Select Input Folder"
+OUTPATH = "Select Output Folder"
+QDFPATH = "Select QDF File"
+BUFF980=1
+BUFF981=1
+
+
+MACRO "LOG" SBUFF1
+TEXT SBUFF1 -2 (SCRNYS-50) 18 C_BK C_WH6 SCRNXS 50 C_BK 1
+ENDM
+
+// cfg datei laden, wenn vorhanden
+BUFF1 = CHKFILE CFGPATH
+IF BUFF1!=0
+ RESTORE CFGPATH
+
+
+XPOS=-2
+YPOS=60
+XSIZ=400
+YSIZ=40
+
+
+CONTROL QDFPATH XPOS  YPOS XSIZ YSIZ 14 C_BL4 C_BL4 1 1 0 0
+YPOS+=60
+CONTROL INPATH XPOS  YPOS XSIZ YSIZ 14 C_BL4 C_BL4 1 2 0 0
+YPOS+=60
+CONTROL OUTPATH XPOS  YPOS XSIZ YSIZ 14 C_BL4 C_BL4 1 3 0 0
+YPOS+=60
+CONTROL "No duplicate Item headers" XPOS YPOS XSIZ YSIZ 18 C_BK C_WH5 980 0 2 0
+YPOS+=40
+CONTROL "Duplicate Items headers" XPOS YPOS XSIZ YSIZ 18 C_BK C_WH5 980 0 2 0
+YPOS+=80
+CONTROL "ASK1,ASKS,ASKM => Text" XPOS YPOS XSIZ YSIZ 18 C_BK C_WH5 981 0 2 0
+YPOS+=40
+CONTROL "ASK1,ASKS,ASKM = > Number" XPOS YPOS XSIZ YSIZ 18 C_BK C_WH5 981 0 2 0
+YPOS+=80
+
+CONTROL "Exit" XPOS  YPOS XSIZ YSIZ 18 C_BL4 C_BL4 1 4 0 0
+YPOS+=60
+CONTROL "Start" XPOS  YPOS XSIZ YSIZ 18 C_BL4 C_BL4 1 5 0 0
+
+:loop
+b1 = CONTROLS 
+
+if b1==4
+then
+	goto :exit
+endif
+
+if b1==5
+then
+	gosub :convert
+	LOG "Finished !"
+	loop :loop 
+endif
+
+if b1==1
+then
+	s1 = SELECT 0 "QDF Datei anwählen"
+	if s1==""
+		loop :loop
+	QDFPATH=s1
+	COPT 1 0 QDFPATH
+endif
+
+if b1==2
+then
+	s1 = SELECT 2 
+	if s1=""
+		loop :loop
+	INPATH=SBUFF1
+	COPT 2 0 INPATH
+endif
+
+if b1==3
+then
+	s1 = SELECT 2 
+	if s1=""
+		loop :loop
+	OUTPATH=SBUFF1
+	COPT 3 0 OUTPATH
+endif
+
+loop :loop
+
+:exit
+KILL CONTROLS
+STORE CFGPATH 1
+
+END
+
+
+:convert
+
+
+if INPATH==OUTPATH
+then
+	//MESSAGE "IN and OUT Path are the same" BUFF1
+	LOG "Error: IN and OUT Path are the same"
+	return
+endif
+
+
+LOAD TEXT INPATH  100 ".txt" 
+
+
+
+IF BUFF100=0
+THEN
+//MESSAGE "No INPUT Files found" BUFF1
+LOG "Error: No INPUT Files found"
+RETURN
+ENDIF
+
+BUFF1 = CHKFILE QDFPATH
+IF BUFF1=0
+THEN
+//MESSAGE "QDF File not found" BUFF1
+LOG "Error: QDF File not found"
+RETURN
+ENDIF
+
+BUFF10=1
+:xloop
+SBUFF1 = QDFPATH
+SBUFF4 = DTEXT[BUFF10]
+SBUFF2 = INPATH + "/" + SBUFF4
+SBUFF3 = OUTPATH + "/" + SBUFF4
+
+
+//SBUFF1 = "vp_dev/EMA/ema_marburg.qdf"
+//SBUFF2 = "vp_dev/EMA/OutputABC123.txt"
+//SBUFF3 = "vp_0dev/EMA/sorted.txt"
+
+
+IF BUFF980=1
+THEN
+BUFF2=2
+ELSE
+BUFF2=3
+ENDIF
+
+IF BUFF981=2
+THEN
+BUFF2=BUFF2+8
+ENDIF
+
+TEST BUFF2 SBUFF1 SBUFF2 SBUFF3 1
+
+
+//MESSAGE "Conversion Result Code = %3.0f" BUFF1
+SBUFF1 = NUMSTR ("Conversion %2.0f Result Code = " BUFF10)  + NUMSTR("%3.0f" BUFF1)
+LOG SBUFF1
+TICKS 500
+BUFF10+=1
+IF BUFF10<=BUFF100
+LOOP :xloop
+
+
+RETURN
+
+END
+

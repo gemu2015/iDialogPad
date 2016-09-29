@@ -6,6 +6,8 @@ Now that XCODE7 provides sideloading apps i decided to put the project to github
 
 The uVariotest editor and simulator programms are also added. (Mac and PC) 
 
+The script "sort_qdf" can be used to sort unsorted idialogpad outputs offline.
+
 Used external Code:
 
 Excel Interface: http://www.codeproject.com/Articles/42504/ExcelFormat-Library
