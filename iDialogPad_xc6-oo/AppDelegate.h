@@ -40,7 +40,7 @@
 @property (nonatomic, retain) NSString *cmdfilename;
 @property (nonatomic, retain) NSString *vpid_number;
 @property (nonatomic, retain) AVAudioPlayer *audioPlayer;
-
+@property (nonatomic, retain) NSString *expdate;
 
 - (void)onTimer;
 - (void)onEVTTimer;

@@ -24,7 +24,7 @@ BOOL use_sorted_export,use_export_numbers,use_gps,auto_save;
 @synthesize soundFileObject;
 @synthesize soundFileObject1;
 
-@synthesize cmdfilename,vpid_number;
+@synthesize cmdfilename,vpid_number,expdate;
 @synthesize audioPlayer;
 
 SystemSoundID	gsoundFileObject,gsoundFileObject1,gsoundFileObject2,gsoundFileObject3;
@@ -36,6 +36,7 @@ NSString *Export_email;
 NSString *Export_email_cc;
 NSString *Varioport_URL;
 NSString *URL_get;
+NSString *Password;
 
 IDialogPadAppDelegate *iap;
 DataSorter *ds;
@@ -278,6 +279,36 @@ double currSysVer;
 	// export email cc
 	Export_email_cc = (NSString *)[defaults stringForKey:(NSString *)@"kModeKey5"];
     
+    // password
+    Password = (NSString *)[defaults stringForKey:(NSString *)@"kModeKey11"];
+    
+    expdate=@"";
+    NSString *ppath =[[NSBundle mainBundle] pathForResource:@"embedded.mobileprovision" ofType:nil];
+    NSString *entry;
+    if (ppath) {
+        NSString *profile =[NSString stringWithContentsOfFile:ppath encoding:NSISOLatin1StringEncoding error:nil];
+        if (profile) {
+            // find expirationdate
+            NSArray *lines=[profile componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\n"]];
+            long count;
+            for (count=0; count<lines.count; count++) {
+                entry=[lines objectAtIndex:count];
+                NSRange rng=[entry rangeOfString:@"<key>ExpirationDate</key>"];
+                if (rng.location!= NSNotFound) {
+                    entry=[lines objectAtIndex:count+1];
+                    NSArray *segs=[entry componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"><-T"]];
+                    // <date>2017-02-14T05:47:32Z</date>
+                    NSString *seg=[segs objectAtIndex:2];
+                    short year=seg.intValue;
+                    seg=[segs objectAtIndex:3];
+                    short month=seg.intValue;
+                    seg=[segs objectAtIndex:4];
+                    short day=seg.intValue;
+                    expdate=[[NSString stringWithFormat:@"Exp date: %02.2d-%02.2d-%04.4d",day,month,year] copy];
+                }
+            }
+        }
+    }
     //use_sorted_export=YES;
     //allow_setup=YES;
 }
