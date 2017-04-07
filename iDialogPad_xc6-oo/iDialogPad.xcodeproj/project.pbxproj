@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5C137D8F1E150F9B000C8765 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C137D8E1E150F9B000C8765 /* Security.framework */; };
-		5C137D911E15102B000C8765 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C137D901E15102B000C8765 /* libz.dylib */; };
 		5C309E671C2BE0970030F402 /* slider-cap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C309E611C2BE0970030F402 /* slider-cap.png */; };
 		5C309E681C2BE0970030F402 /* slider-cap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C309E621C2BE0970030F402 /* slider-cap@2x.png */; };
 		5C309E691C2BE0970030F402 /* slider-track-fill.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C309E631C2BE0970030F402 /* slider-track-fill.png */; };
@@ -19,6 +18,7 @@
 		5C3882A41C2DC68100C80A13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3882A21C2DC68100C80A13 /* main.m */; };
 		5CDF8DB51C2E74820039B5DC /* empty.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF8DB31C2E74820039B5DC /* empty.mm */; };
 		5CE240DC1C2D2D6F00374989 /* libiDialogPad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE240DB1C2D2D6F00374989 /* libiDialogPad.a */; };
+		5CE9CD8B1E979AC80084BAAD /* zlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CD8A1E979AC80084BAAD /* zlib.framework */; };
 		5CF8DBCC1BD0CAF9007F9E11 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C1D33710F2898BF0026E508 /* Settings.bundle */; };
 		5CF8DBCD1BD0CAF9007F9E11 /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 5C88B78F106F922E00E64DFD /* tap.aif */; };
 		5CF8DBCE1BD0CAF9007F9E11 /* noSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C88B83F106F9D9B00E64DFD /* noSound.wav */; };
@@ -109,7 +109,6 @@
 		5C08B59215483B4B00FFE8E3 /* Thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thumb.png; sourceTree = "<group>"; };
 		5C0FD64F173BA7090000EA05 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5C137D8E1E150F9B000C8765 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		5C137D901E15102B000C8765 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		5C183C9A16CFE55000E3553B /* off_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off_img.png; sourceTree = "<group>"; };
 		5C183C9B16CFE55000E3553B /* on_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on_img.png; sourceTree = "<group>"; };
 		5C1D33710F2898BF0026E508 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -186,6 +185,7 @@
 		5CE240DB1C2D2D6F00374989 /* libiDialogPad.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiDialogPad.a; sourceTree = "<group>"; };
 		5CE531B114542E3D0027AFA9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5CE739F910766E870026A07D /* Classic.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Classic.aif; sourceTree = "<group>"; };
+		5CE9CD8A1E979AC80084BAAD /* zlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = zlib.framework; sourceTree = "<group>"; };
 		5CEFA9AB1562B7100006792C /* bigThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigThumb.png; sourceTree = "<group>"; };
 		5CF8DC3D1BD0CAF9007F9E11 /* iDialogPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDialogPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				5CF8DC321BD0CAF9007F9E11 /* AVFoundation.framework in Frameworks */,
 				5CF8DC331BD0CAF9007F9E11 /* CFNetwork.framework in Frameworks */,
 				5CF8DC341BD0CAF9007F9E11 /* CoreGraphics.framework in Frameworks */,
-				5C137D911E15102B000C8765 /* libz.dylib in Frameworks */,
+				5CE9CD8B1E979AC80084BAAD /* zlib.framework in Frameworks */,
 				5CE240DC1C2D2D6F00374989 /* libiDialogPad.a in Frameworks */,
 				5CF8DC351BD0CAF9007F9E11 /* CoreLocation.framework in Frameworks */,
 				5CF8DC361BD0CAF9007F9E11 /* CoreBluetooth.framework in Frameworks */,
@@ -297,7 +297,7 @@
 			children = (
 				5C137D8E1E150F9B000C8765 /* Security.framework */,
 				5CE240DB1C2D2D6F00374989 /* libiDialogPad.a */,
-				5C137D901E15102B000C8765 /* libz.dylib */,
+				5CE9CD8A1E979AC80084BAAD /* zlib.framework */,
 				5C7F9E7717CC826B00B83EBB /* CoreBluetooth.framework */,
 				5CE531B114542E3D0027AFA9 /* CoreLocation.framework */,
 				5CB989C2124B1E6700714DA1 /* AddressBook.framework */,
@@ -463,6 +463,11 @@
 			attributes = {
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = becker;
+				TargetAttributes = {
+					5CF8DBCA1BD0CAF9007F9E11 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iDialogPad" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -826,14 +831,16 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gerhard Mutz (XJ6BTV7PQH)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gerhard Mutz (XJ6BTV7PQH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
@@ -862,9 +869,11 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.iDialogPad;
 				PRODUCT_NAME = iDialogPad;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -880,14 +889,16 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Gerhard Mutz (L2H9H8ZLTT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gerhard Mutz (L2H9H8ZLTT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
@@ -910,9 +921,11 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.iDialogPad;
 				PRODUCT_NAME = iDialogPad;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -928,14 +941,16 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Gerhard Mutz (L2H9H8ZLTT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gerhard Mutz (L2H9H8ZLTT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -960,9 +975,11 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lstdc++";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.iDialogPad;
 				PRODUCT_NAME = iDialogPad;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
