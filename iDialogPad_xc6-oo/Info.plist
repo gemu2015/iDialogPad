@@ -29,6 +29,8 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>icon.png</string>
+	<key>NSCameraUsageDescription</key>
+	<string>want to use camera</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>icon.png</string>
@@ -71,10 +73,19 @@
 	<string>1.9528</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>want to use location</string>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>NSMainNibFile~ipad</key>
 	<string>MainWindow-iPad</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>want to use microphone</string>
 	<key>SignerIdentity</key>
 	<string>Apple iPhone OS Application Signing</string>
 	<key>UIBackgroundModes</key>
