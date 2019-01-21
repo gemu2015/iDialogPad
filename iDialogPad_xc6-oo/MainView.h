@@ -70,4 +70,5 @@
 -(void)Auto_SaveOutput;
 -(void)cmdfile_error:(short)error;
 -(void)UpdateTime;
+-(void) disablehelp;
 @end

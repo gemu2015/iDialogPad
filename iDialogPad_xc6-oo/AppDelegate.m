@@ -313,11 +313,16 @@ double currSysVer;
     //allow_setup=YES;
 }
 
+extern MainView *glob_mainView;
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[self getUserSetup];
     [ds postOutputFiles];
     NSLog(@"app did become activ");
+    if (glob_mainView) {
+        [glob_mainView disablehelp];
+    }
+
 }
 
 -(void)clroldNotifications {
